@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PlaylistR</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="body-content ">
+        <header>
+            PlaylistR
+            <span class="add-song" data-open-modal data-target="add-song-modal">
+                <span class="plus-icon"></span>
+            </span>
+        </header>
+
+        <nav class="col-xs-12 col-md-3">
+            <ul>
+                <li data-sort="" class="active">
+                    <span>All songs</span>
+                </li>
+                <li data-sort="alphabetical">
+                    <span>Alphabetical</span>
+                </li>
+                <li data-sort="favorites">
+                    <span>Favorites</span>
+                </li>
+                <li data-sort="most-played">
+                    <span>Most played</span>
+                </li>
+                <li data-sort="last-played">
+                    <span>Last played</span>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="player" class="hide"></div>
+        <div class="playlist playlist-js col-xs-12 col-md-9"></div>
+
+    </div>
+
+    <footer>
+        PlaylitsR
+        <br> Your personal playlist manager
+        <br>
+        <a href="resources.html">Resources</a>
+    </footer>
+
+    <div id="song-template" class="song song-js">
+        <div class="details col-xs-12 col-sm-6">
+            <div>
+                <span class="artist">Dream Theater</span>
+                <span class="name">Octavarium</span>
+            </div>
+            <span class="album">Octavarium</span>
+        </div>
+        <div class="controls col-xs-12 col-sm-6">
+            <span>
+                <span class="duration">00:00</span>
+                <span class="length">--:--</span>
+            </span>
+            <button class="restart btn btn-primary btn-circle">
+                <svg viewBox="0 0 100 100">
+                    <polygon points="24,50 75,10 75,90"></polygon>
+                    <rect x="10" y="16" width="12" height="70"></rect>
+                </svg>
+            </button>
+            <button class="play btn btn-primary btn-circle">
+                <svg viewBox="0 0 100 100">
+                    <polygon points="25,10 90,50 25,90"></polygon>
+                </svg>
+            </button>
+            <button class="pause hide btn btn-primary btn-circle">
+                <svg viewBox="0 0 100 100">
+                    <rect x="12" y="10" width="25" height="80"></rect>
+                    <rect x="62" y="10" width="25" height="80"></rect>
+                </svg>
+            </button>
+            <button class="options btn btn-invi" data-open-modal data-target="options-modal"></button>
+        </div>
+    </div>
+
+    <div id="options-modal" class="modal">
+        <div class="modal-wrapper">
+            <div class="modal-header">
+                <h3>Options</h3>
+                <span class="close close-icon" data-close-modal></span>
+            </div>
+            <div class="modal-content">
+                <div class="input-group sm text-c">
+                    <label for="favorite">Favourite</label>
+                    <span class="checkbox">
+                        <input id="favorite" type="checkbox">
+                        <label for="favorite"></label>
+                    </span>
+                </div>
+                <div class="input-group sm text-c">
+                    <label for="order">Order</label>
+                    <input id="order" type="text">
+                </div>
+                <div class="input-group">
+                    <label for="video-id">YouTube Video ID</label>
+                    <input data-song="video-id" type="text">
+                </div>
+                <div class="input-group">
+                    <label class="lbl" for="name">Name</label>
+                    <input data-song="name" type="text">
+                </div>
+                <div class="input-group">
+                    <label class="lbl" for="artist">Artist</label>
+                    <input data-song="artist" type="text">
+                </div>
+                <div class="input-group">
+                    <label class="lbl" for="album">Album</label>
+                    <input data-song="album" type="text">
+                </div>
+                <p class="input-group sm text-c">
+                    <button id="remove" class="btn btn-primary btn-remove sm">Remove from playlist</button>
+
+                    <button class="btn btn-primary btn-submit sm">Save changes</button>
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="add-song-modal" class="modal">
+        <div class="modal-wrapper">
+            <div class="modal-header">
+                <h3>Add a Song</h3>
+                <span class="close close-icon" data-close-modal></span>
+            </div>
+            <div class="modal-content">
+                <div class="input-group">
+                    <label for="video-id">YouTube Video ID</label>
+                    <input id="video-id" type="text">
+                </div>
+                <div class="input-group">
+                    <label class="lbl" for="name">Name</label>
+                    <input id="name" type="text">
+                </div>
+                <div class="input-group">
+                    <label class="lbl" for="artist">Artist</label>
+                    <input id="artist" type="text">
+                </div>
+                <div class="input-group">
+                    <label class="lbl" for="album">Album</label>
+                    <input id="album" type="text">
+                </div>
+                <p class="text-c">
+                    <button class="btn btn-primary btn-submit">Add to playlist</button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="message" class="hide"></div>
+
+    <script src="https://youtube.com/iframe_api"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
